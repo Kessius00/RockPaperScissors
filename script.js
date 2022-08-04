@@ -61,17 +61,17 @@ function game(){
     // PRINTING THE RESULTS
     console.log(getResultRound);
     
-
+    // CHECKING SENTENCE FOR CHAR WHICH DECIDES IF WIN
     if (getResultRound.charAt(4) == 'w'){
         playerPoints++;
     } else if (getResultRound.charAt(4) == 'l'){
-        computerPoints++;
-    };
+        computerPoints++;};
 
+    // SHOWING THE SCORE 
     console.log(`Points of player: ${playerPoints}`);
     console.log(`Points of computer: ${computerPoints}`);
 
-
+    // DECLARATION OF THE WINNER OF THE GAME
     if (playerPoints < computerPoints){
         console.log('Computer wins!');
     } else if (playerPoints > computerPoints){
