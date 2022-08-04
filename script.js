@@ -40,3 +40,46 @@ function playRound(playerSelection, computerSelection){
     }; 
 };
 
+function game(){
+    let playerChoice = '';
+    let computerChoice = '';
+    let getResultRound = '';
+    let playerPoints = 0;
+    let computerPoints = 0;
+
+    for (i = 0; i < 5; i++){
+    // ROUND DECLARATION
+    console.log(`ROUND ${i+1}`);
+
+    // TAKE INPUT FOR CHOICES FOR PLAYERS 
+    playerChoice = prompt('Which are you? [Rock, Paper or Scissors]'); 
+    computerChoice = getComputerChoice();
+
+    // PLAYING THE ROUND
+    getResultRound = playRound(playerChoice, computerChoice);
+
+    // PRINTING THE RESULTS
+    console.log(getResultRound);
+    
+
+    if (getResultRound.charAt(4) == 'w'){
+        playerPoints++;
+    } else if (getResultRound.charAt(4) == 'l'){
+        computerPoints++;
+    };
+
+    console.log(`Points of player: ${playerPoints}`);
+    console.log(`Points of computer: ${computerPoints}`);
+
+
+    if (playerPoints < computerPoints){
+        console.log('Computer wins!');
+    } else if (playerPoints > computerPoints){
+        console.log('Player wins!');
+    } else {console.log("It's a tie!");};
+
+
+    };
+    
+
+};
