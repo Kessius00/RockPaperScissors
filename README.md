@@ -13,4 +13,11 @@ Now let’s merge our rps-ui branch into main, our current branch, with git merg
 If everything goes fine, our rps-ui branch is now successfully merged with main! Use git log and you’ll see all the commits you’ve made to your feature branch on top of the commits you made to the main branch. Now for our final step!
 Let’s push our main branch into our remote repo by running git push origin main . Go to your GitHub repo and you’ll see that our main branch will have all the changes and commits you made to the rps-ui branch. Congratulations! You’ve successfully pushed your first feature into your production branch!
 Now that we have all our code in the main branch, we don’t really need our rps-ui branch anymore. Let’s do some cleanup, both locally and in the remote repo. Delete the branch from our local repo with git branch -d rps-ui and also delete it from the remote repo on GitHub with git push --delete origin rps-ui. Congrats, we’re all done with our cleanup!
-Make sure to publish the project on GitHub Pages and add a live preview link in the project lesson.
+
+
+
+Image by OpenClipart-Vectors: https://pixabay.com/users/openclipart-vectors-30363/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1297454
+
+Image by Mari Loli: https://pixabay.com/users/mlaranda-1375673/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1345905 
+
+Image by Magda Ehlers: https://www.pexels.com/nl-nl/foto/kunst-donker-winter-blad-4097163/
