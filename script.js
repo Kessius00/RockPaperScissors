@@ -12,8 +12,16 @@ button.addEventListener('click', () =>{
     pScore.classList.toggle('scoreboard');
     header.removeChild(button);
     header.insertBefore(pScore, score);
+    playAudio(6);
     
 });
+
+
+function playAudio(e){
+    const audio = document.querySelector(`audio[data-key="${e}"]`);
+    audio.currentTime = 0; //rewind if start is playing
+    audio.play();
+};
 
 
 
