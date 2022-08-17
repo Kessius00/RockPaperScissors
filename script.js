@@ -1,16 +1,25 @@
 const button = document.querySelector('button');
 const choices = document.querySelectorAll('.card');
+const rock = document.querySelector('.rock');
+const paper = document.querySelector('.paper');
+const scissors = document.querySelector('.scissors');
+const header = document.querySelector('.header');
+const score = document.querySelector('.score');
 
-choices.forEach((choice) => choice.addEventListener('onclick', console.log(choice)));
-
-
+button.addEventListener('click', () =>{
+    const pScore = document.createElement('p');
+    pScore.textContent = 'Scoreboard';
+    pScore.classList.toggle('scoreboard');
+    header.removeChild(button);
+    header.insertBefore(pScore, score);
+    
+});
 
 
 
 function getComputerChoice(){
     let choiceEmbodiment = '';
     const choice = Math.random()*3;
-    
     if (choice < 1){
         choiceEmbodiment = 'Rock';
     } else if (choice < 2){
@@ -18,7 +27,6 @@ function getComputerChoice(){
     } else if (choice < 3){
         choiceEmbodiment = 'Scissors';
     };
-
     return choiceEmbodiment
     };
 
