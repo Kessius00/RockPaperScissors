@@ -95,6 +95,28 @@ button{
     color: rgb(50, 3, 3);
 }
 
+
+
+.cardpressed{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 5px;
+    border: black;
+    border-style: solid;
+    border-width: 4px;
+    box-shadow: 4px -3px 0 0 red;
+    padding: 20px 10px 0px 10px;
+    gap: 10px;
+    font-weight: 700;
+    font-size: large;
+    height: 250px;
+}
+
+
+
+
 .card{
     display: flex;
     flex-direction: column;
@@ -111,12 +133,29 @@ button{
     font-size: large;
     height: 250px;
 }
+
+.card:hover{
+    box-shadow: 9px -8px 0 0 rgb(255, 132, 0);
+
+}
+
+
 img .card{
     display: flex;
     flex-direction: column;
     justify-content: center;
     
 }
+
+button:hover{
+    border: 2px solid rgb(236, 236, 236);
+    background-color: rgba(152, 81, 0, 0.265);
+    border: red;
+    border-width: 3px;
+    border-style: solid;
+    opacity: 0.9;
+    }
+
 
 img {
     height: auto;

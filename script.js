@@ -22,6 +22,8 @@ if (humanScoreboard === 5 || computerScoreboard === 5){
 };
 
 
+
+
 pFooter.classList.toggle('cow')
 
 let computerScore = 0;
@@ -32,7 +34,13 @@ computerScoreboard.classList.toggle('computerscore');
 humanScoreboard.textContent = humanScore;
 computerScoreboard.textContent = computerScore;
 
+// rock.addEventListener('mouseup', (event) => {
+//         card.classList.toggle('cardpressed');
+//     });
 
+// rock.addEventListener('mousedown', (event) => {
+//         card.classList.toggle('cardpressed');
+//     });
 
 
 button.addEventListener('click', () =>{
@@ -43,9 +51,11 @@ button.addEventListener('click', () =>{
     human.appendChild(humanScoreboard);
     computer.appendChild(computerScoreboard);
     playAudio(6);
-    choices.forEach((card) => {
     
-    card.addEventListener('click', ()=>{   
+    choices.forEach((card) => {
+
+    card.addEventListener('click', ()=>{ 
+      
     let playerSelection = card.classList[1]; 
     let round = playRound(playerSelection);
 
