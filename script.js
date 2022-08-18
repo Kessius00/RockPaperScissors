@@ -13,34 +13,18 @@ const pScore = document.createElement('p');
 const midSite = document.querySelector('.midsite')
 const humanScoreboard = document.createElement('p');
 const computerScoreboard = document.createElement('p');
-
-
-if (humanScoreboard === 5 || computerScoreboard === 5){
-    choices.forEach((choice)=>{
-        choices.removeChild(choice);
-    });
-};
-
+let computerScore = 0;
+let humanScore = 0;
 
 
 
 pFooter.classList.toggle('cow')
-
-let computerScore = 0;
-let humanScore = 0;
-
 humanScoreboard.classList.toggle('humanscore');
 computerScoreboard.classList.toggle('computerscore');
 humanScoreboard.textContent = humanScore;
 computerScoreboard.textContent = computerScore;
 
-// rock.addEventListener('mouseup', (event) => {
-//         card.classList.toggle('cardpressed');
-//     });
 
-// rock.addEventListener('mousedown', (event) => {
-//         card.classList.toggle('cardpressed');
-//     });
 
 
 button.addEventListener('click', () =>{
@@ -53,11 +37,12 @@ button.addEventListener('click', () =>{
     playAudio(6);
     
     choices.forEach((card) => {
-
     card.addEventListener('click', ()=>{ 
       
-    let playerSelection = card.classList[1]; 
-    let round = playRound(playerSelection);
+    let playerSelection = card.classList[1];
+    let computerSelection = getComputerChoice();
+    let round = playRound(playerSelection, computerSelection);
+
 
     if  (computerScore < 5 || humanScore < 5){
         pFooter.textContent = round; 
@@ -108,9 +93,9 @@ function determineWinner(getResultRound){
     };
 
 
-function playRound(playerSelection){
+function playRound(playerSelection, computerSelection){
     playerSelection = playerSelection.toUpperCase();
-    computerSelection = getComputerChoice().toUpperCase();
+    computerSelection = computerSelection.toUpperCase();
     let tie = 'Tie! Try again.'
 
     if (playerSelection == "ROCK" && computerSelection == "ROCK"){

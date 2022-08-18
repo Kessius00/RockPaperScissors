@@ -53,6 +53,10 @@ button{
     width: 80px;
 }
 
+.computer{
+    color: rgb(0, 0, 226);
+}
+
 
 .humanscore, .computerscore{
     font-size: 100px;
@@ -97,24 +101,6 @@ button{
 
 
 
-.cardpressed{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    border-radius: 5px;
-    border: black;
-    border-style: solid;
-    border-width: 4px;
-    box-shadow: 4px -3px 0 0 red;
-    padding: 20px 10px 0px 10px;
-    gap: 10px;
-    font-weight: 700;
-    font-size: large;
-    height: 250px;
-}
-
-
 
 
 .card{
@@ -134,10 +120,17 @@ button{
     height: 250px;
 }
 
+.cardpressed{
+    box-shadow: 9px -8px 0 0 rgb(0, 0, 0);
+
+}
+
 .card:hover{
     box-shadow: 9px -8px 0 0 rgb(255, 132, 0);
 
 }
+
+
 
 
 img .card{
@@ -159,6 +152,14 @@ button:hover{
 
 img {
     height: auto;
+    width: 250px;
+    object-fit: cover;
+
+}
+
+.paper img{
+    
+    height: 200px;
     width: 250px;
 
 }
