@@ -13,9 +13,16 @@ const pScore = document.createElement('p');
 const midSite = document.querySelector('.midsite')
 const humanScoreboard = document.createElement('p');
 const computerScoreboard = document.createElement('p');
-const page = document.querySelector('.page')
-const endScreen = document.createElement('div');
-endScreen.classList.toggle('endscreen');
+const page = document.querySelector('.page');
+
+if (humanScoreboard === 5 || computerScoreboard === 5){
+    choices.forEach((choice)=>{
+        choices.removeChild(choice);
+    });
+};
+
+
+pFooter.classList.toggle('cow')
 
 let computerScore = 0;
 let humanScore = 0;
@@ -25,10 +32,7 @@ computerScoreboard.classList.toggle('computerscore');
 humanScoreboard.textContent = humanScore;
 computerScoreboard.textContent = computerScore;
 
-if (humanScoreboard == '5' || computerScoreboard == '5'){
-    choices.forEach((choice)=>{
-        midSite.removeChild(choice)});
-    };
+
 
 
 button.addEventListener('click', () =>{
@@ -39,16 +43,13 @@ button.addEventListener('click', () =>{
     human.appendChild(humanScoreboard);
     computer.appendChild(computerScoreboard);
     playAudio(6);
-});
-
-
-
-
-choices.forEach((card) => {
+    choices.forEach((card) => {
+    
     card.addEventListener('click', ()=>{   
     let playerSelection = card.classList[1]; 
     let round = playRound(playerSelection);
-    if  (computerScore < 5 || humanScore < 11){
+
+    if  (computerScore < 5 || humanScore < 5){
         pFooter.textContent = round; 
         footer.appendChild(pFooter); 
     };
@@ -58,12 +59,14 @@ choices.forEach((card) => {
             humanScore++;
             humanScoreboard.textContent = humanScore;
             human.appendChild(humanScoreboard);
-            if (humanScore<11){
+            if (humanScore<5){
                 playAudio(6+humanScore);
-            } else if (humanScore === 11){
+            } else if (humanScore === 5){
                 playAudio(6+humanScore);
                 pFooter.textContent = 'We have a winner: Human'; 
                 footer.appendChild(pFooter); 
+                choices.forEach((choice)=>{
+                midSite.removeChild(choice)});
             };
             
         } else {
@@ -76,10 +79,15 @@ choices.forEach((card) => {
                 playAudio(computerScore);
                 pFooter.textContent = 'We have a winner: COMPUTER'; 
                 footer.appendChild(pFooter); 
+                choices.forEach((choice)=>{
+                midSite.removeChild(choice)});
             };
         };
-    };});
+    }});
 });
+});
+
+
 
 function determineWinner(getResultRound){
     if(getResultRound.charAt(4) === 'w'){

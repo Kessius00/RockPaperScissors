@@ -33,7 +33,7 @@ button{
     align-items: center;
     /* margin-top: 25px; */
     font-size: larger;
-    height: 250px;
+    height: 240px;
 }
 
 .header h1{
@@ -71,16 +71,13 @@ button{
 }
 
 .headerup{
-    height: 90px;
+    margin-top: 10px;
+    height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.endscreen{
-    z-index: 1;
-    
-}
 
 .midsite{
     margin-top: 50px;
@@ -92,10 +89,6 @@ button{
     font-size: 30px;
     margin-top: -30px;
 
-}
-
-.clicked{
-    transform: scale(1.5);
 }
 
 .card{
@@ -125,6 +118,10 @@ img {
     height: auto;
     width: 250px;
 
+}
+
+.cow{
+    font-size: larger;
 }
 
 .footer{
