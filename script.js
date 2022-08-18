@@ -3,59 +3,111 @@ const choices = document.querySelectorAll('.card');
 const rock = document.querySelector('.rock');
 const paper = document.querySelector('.paper');
 const scissors = document.querySelector('.scissors');
+const human = document.querySelector('.human');
+const computer = document.querySelector('.computer');
 const header = document.querySelector('.header');
 const footer = document.querySelector('.footer');
 const score = document.querySelector('.score');
+const pFooter = document.createElement('p');
+const pScore = document.createElement('p');
+const midSite = document.querySelector('.midsite')
+const humanScoreboard = document.createElement('p');
+const computerScoreboard = document.createElement('p');
+const page = document.querySelector('.page')
+const endScreen = document.createElement('div');
+endScreen.classList.toggle('endscreen');
+
 let computerScore = 0;
 let humanScore = 0;
 
+humanScoreboard.classList.toggle('humanscore');
+computerScoreboard.classList.toggle('computerscore');
+humanScoreboard.textContent = humanScore;
+computerScoreboard.textContent = computerScore;
+
+if (humanScoreboard == '5' || computerScoreboard == '5'){
+    choices.forEach((choice)=>{
+        midSite.removeChild(choice)});
+    };
+
+
 button.addEventListener('click', () =>{
-    const pScore = document.createElement('p');
     pScore.textContent = 'Scoreboard';
     pScore.classList.toggle('scoreboard');
     header.removeChild(button);
     header.insertBefore(pScore, score);
+    human.appendChild(humanScoreboard);
+    computer.appendChild(computerScoreboard);
     playAudio(6);
 });
 
+
+
+
 choices.forEach((card) => {
-    card.addEventListener('click', ()=>{
-        let playerSelection = card.classList[1];
-        const pFooter = document.createElement('p');
-        let round = playRound(playerSelection);
-        pFooter.textContent = round;
-        footer.appendChild(pFooter);
-        
-    });
+    card.addEventListener('click', ()=>{   
+    let playerSelection = card.classList[1]; 
+    let round = playRound(playerSelection);
+    if  (computerScore < 5 || humanScore < 11){
+        pFooter.textContent = round; 
+        footer.appendChild(pFooter); 
+    };
+
+    if (determineWinner(round) !== null){
+        if (determineWinner(round)){
+            humanScore++;
+            humanScoreboard.textContent = humanScore;
+            human.appendChild(humanScoreboard);
+            if (humanScore<11){
+                playAudio(6+humanScore);
+            } else if (humanScore === 11){
+                playAudio(6+humanScore);
+                pFooter.textContent = 'We have a winner: Human'; 
+                footer.appendChild(pFooter); 
+            };
+            
+        } else {
+            computerScore++;
+            computerScoreboard.textContent = computerScore;
+            computer.appendChild(computerScoreboard);
+            if (computerScore<5){
+                playAudio(computerScore);
+            } else if (computerScore===5){
+                playAudio(computerScore);
+                pFooter.textContent = 'We have a winner: COMPUTER'; 
+                footer.appendChild(pFooter); 
+            };
+        };
+    };});
 });
 
-
-
-function playAudio(e){
-    const audio = document.querySelector(`audio[data-key="${e}"]`);
-    audio.currentTime = 0; //rewind if start is playing
-    audio.play();
+function game(){
+    let playerSelection = card.classList[1]; //which card did the player choose?
+    let round = playRound(playerSelection); //determine the winner
+    pFooter.textContent = round; //updating the text in footer
+    footer.appendChild(pFooter); //adding the 
+    if (determineWinner(round) !== null){
+        if (determineWinner(round)){
+            humanScore++;
+            humanScoreboard.textContent = humanScore;
+            human.appendChild(humanScoreboard);
+            playAudio(6+humanScore);
+            
+        } else {
+            computerScore++;
+            computerScoreboard.textContent = computerScore;
+            computer.appendChild(computerScoreboard);
+            playAudio(computerScore);
+        };
+    };
 };
 
-// function getPlayerChoice(){
-//     choices.forEach((card) => {
-//         card.addEventListener('click', ()=>{
-//             return card.classList[1]
-//         });
-//     });
-// };
-
-function getComputerChoice(){
-    let choiceEmbodiment = '';
-    const choice = Math.random()*3;
-    if (choice < 1){
-        choiceEmbodiment = 'Rock';
-    } else if (choice < 2){
-        choiceEmbodiment = 'Paper';
-    } else if (choice < 3){
-        choiceEmbodiment = 'Scissors';
-    };
-    return choiceEmbodiment
+function determineWinner(getResultRound){
+    if(getResultRound.charAt(4) === 'w'){
+        return true;
+    } else if (getResultRound.charAt(4) === 'l'){
+        return false};
+    return null;
     };
 
 
@@ -85,27 +137,21 @@ function playRound(playerSelection){
     }; 
 };
 
-function determineWinner()
+function getComputerChoice(){
+    let choiceEmbodiment = '';
+    const choice = Math.random()*3;
+    if (choice < 1){
+        choiceEmbodiment = 'Rock';
+    } else if (choice < 2){
+        choiceEmbodiment = 'Paper';
+    } else if (choice < 3){
+        choiceEmbodiment = 'Scissors';
+    };
+    return choiceEmbodiment
+    };
 
-
-
-
-    // // PRINTING THE RESULTS
-    // console.log(getResultRound);
-    
-    // CHECKING SENTENCE FOR CHAR WHICH DECIDES IF WIN
-    // if (getResultRound.charAt(4) == 'w'){
-    //     playerPoints++;
-    // } else if (getResultRound.charAt(4) == 'l'){
-    //     computerPoints++;};
-
-    // // SHOWING THE SCORE 
-    // console.log(`Points of player: ${playerPoints}`);
-    // console.log(`Points of computer: ${computerPoints}`);
-
-    // // DECLARATION OF THE WINNER OF THE GAME
-    // if (playerPoints < computerPoints){
-    //     console.log('Computer wins!');
-    // } else if (playerPoints > computerPoints){
-    //     console.log('Player wins!');
-    // } else {console.log("It's a tie!");};
+function playAudio(e){
+    const audio = document.querySelector(`audio[data-key="${e}"]`);
+    audio.currentTime = 0; //rewind if start is playing
+    audio.play();
+};

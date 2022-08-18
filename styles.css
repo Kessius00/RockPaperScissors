@@ -70,6 +70,17 @@ button{
     gap: auto;
 }
 
+.headerup{
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.endscreen{
+    z-index: 1;
+    
+}
 
 .midsite{
     margin-top: 50px;
