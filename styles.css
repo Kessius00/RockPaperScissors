@@ -91,6 +91,13 @@ button{
 
 }
 
+.kessius{
+    font-size: 9px;
+    margin-top: -9px;
+    font-weight: 100;
+    color: rgb(50, 3, 3);
+}
+
 .card{
     display: flex;
     flex-direction: column;
