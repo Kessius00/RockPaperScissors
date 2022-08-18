@@ -13,7 +13,7 @@ const pScore = document.createElement('p');
 const midSite = document.querySelector('.midsite')
 const humanScoreboard = document.createElement('p');
 const computerScoreboard = document.createElement('p');
-const page = document.querySelector('.page');
+
 
 if (humanScoreboard === 5 || computerScoreboard === 5){
     choices.forEach((choice)=>{
@@ -139,6 +139,6 @@ function getComputerChoice(){
 
 function playAudio(e){
     const audio = document.querySelector(`audio[data-key="${e}"]`);
-    audio.currentTime = 0; //rewind if start is playing
+    audio.currentTime = 0; 
     audio.play();
 };
