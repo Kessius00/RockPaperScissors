@@ -81,27 +81,6 @@ choices.forEach((card) => {
     };});
 });
 
-function game(){
-    let playerSelection = card.classList[1]; //which card did the player choose?
-    let round = playRound(playerSelection); //determine the winner
-    pFooter.textContent = round; //updating the text in footer
-    footer.appendChild(pFooter); //adding the 
-    if (determineWinner(round) !== null){
-        if (determineWinner(round)){
-            humanScore++;
-            humanScoreboard.textContent = humanScore;
-            human.appendChild(humanScoreboard);
-            playAudio(6+humanScore);
-            
-        } else {
-            computerScore++;
-            computerScoreboard.textContent = computerScore;
-            computer.appendChild(computerScoreboard);
-            playAudio(computerScore);
-        };
-    };
-};
-
 function determineWinner(getResultRound){
     if(getResultRound.charAt(4) === 'w'){
         return true;
